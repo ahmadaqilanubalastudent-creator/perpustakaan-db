@@ -23,3 +23,10 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/admin.php';
 require __DIR__.'/auth.php';
+
+Route::get('/debug-set-admin', function () {
+    $user = \App\Models\User::where('email', 'admin@perpustakaan.test')->first();
+    $user->role = 'admin';
+    $user->save();
+    return $user;
+});
