@@ -31,3 +31,12 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/admin.php';
 require __DIR__.'/auth.php';
+
+Route::get('/debug-create-admin', function () {
+    return \App\Models\User::create([
+        'name' => 'Admin',
+        'email' => 'admin@perpustakaan.test',
+        'password' => bcrypt('password'),
+        'email_verified_at' => now(),
+    ]);
+});
