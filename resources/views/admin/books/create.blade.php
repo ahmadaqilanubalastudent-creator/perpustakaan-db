@@ -16,7 +16,7 @@
             <input type="text" name="isbn" value="{{ old('isbn') }}" class="w-full border-gray-300 rounded-lg">
         </div>
 
-        <div x-data="{ newAuthor: false }">
+        <div x-data="{ newAuthor: {{ $authors->isEmpty() ? 'true' : 'false' }} }">
     <label class="block text-sm font-medium mb-1">Penulis</label>
     <select name="author_id" x-show="!newAuthor" @change="newAuthor = ($event.target.value === 'new')" class="w-full border-gray-300 rounded-lg">
         @foreach ($authors as $author)
@@ -33,7 +33,7 @@
     @error('author_id') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
 </div>
 
-       <div x-data="{ newCategory: false }">
+       <div x-data="{ newCategory: {{ $categories->isEmpty() ? 'true' : 'false' }} }">
     <label class="block text-sm font-medium mb-1">Kategori</label>
     <select name="category_id" x-show="!newCategory" @change="newCategory = ($event.target.value === 'new')" class="w-full border-gray-300 rounded-lg">
         @foreach ($categories as $category)
