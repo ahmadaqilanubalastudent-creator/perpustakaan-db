@@ -23,3 +23,13 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/admin.php';
 require __DIR__.'/auth.php';
+
+Route::get('/debug-check-books', function () {
+    return [
+        'count' => \App\Models\Book::count(),
+        'titles' => \App\Models\Book::pluck('title'),
+        'db_connection' => config('database.default'),
+        'db_host' => config('database.connections.pgsql.host'),
+        'db_database' => config('database.connections.pgsql.database'),
+    ];
+});
