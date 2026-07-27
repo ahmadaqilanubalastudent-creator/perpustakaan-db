@@ -35,7 +35,7 @@
                         <td class="px-4 py-3 space-x-2">
                             <a href="{{ route('admin.books.edit', $book) }}" class="text-blue-600">Edit</a>
                             <form method="POST" action="{{ route('admin.books.destroy', $book) }}" class="inline"
-                                  onsubmit="return confirm('Yakin hapus buku ini?')">
+      onsubmit="return confirm('Yakin hapus buku &quot;{{ $book->title }}&quot;?')">
                                 @csrf @method('DELETE')
                                 <button type="submit" class="text-red-600">Hapus</button>
                             </form>
