@@ -15,13 +15,20 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
                     @auth
-    @if(auth()->user()->role === 'admin')
-        <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out" href="{{ route('admin.books.index') }}">
-            Admin Panel
-        </a>
-    @endif
-@endauth
+                        <x-nav-link :href="route('loans.index')" :active="request()->routeIs('loans.index')">
+                            {{ __('Buku Dipinjam') }}
+                        </x-nav-link>
+                    @endauth
+
+                    @auth
+                        @if(auth()->user()->role === 'admin')
+                            <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out" href="{{ route('admin.books.index') }}">
+                                Admin Panel
+                            </a>
+                        @endif
+                    @endauth
                 </div>
             </div>
 
@@ -82,6 +89,20 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            @auth
+                <x-responsive-nav-link :href="route('loans.index')" :active="request()->routeIs('loans.index')">
+                    {{ __('Buku Dipinjam') }}
+                </x-responsive-nav-link>
+            @endauth
+
+            @auth
+                @if(auth()->user()->role === 'admin')
+                    <x-responsive-nav-link :href="route('admin.books.index')" :active="request()->routeIs('admin.*')">
+                        {{ __('Admin Panel') }}
+                    </x-responsive-nav-link>
+                @endif
+            @endauth
         </div>
 
         <!-- Responsive Settings Options -->

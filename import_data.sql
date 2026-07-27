@@ -1,0 +1,23 @@
+-- Import data buku dari lokal ke Railway
+-- Pakai ON CONFLICT DO NOTHING supaya data yang sudah ada (Dunia Sophie, Jostein Gaarder)
+-- tidak error / tidak terduplikasi.
+
+INSERT INTO public.authors (id, name, created_at, updated_at) VALUES ('019f9e83-3a68-71c4-a25a-769c2091514d', 'Pramoedya Ananta Toer', '2026-07-26 13:00:28', '2026-07-26 13:00:28') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.authors (id, name, created_at, updated_at) VALUES ('019f9e83-3a6a-725f-9a8c-7706c9ef9f6f', 'Andrea Hirata', '2026-07-26 13:00:28', '2026-07-26 13:00:28') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.authors (id, name, created_at, updated_at) VALUES ('019f9e83-3a6b-718e-8ac7-92f58d9c1eb1', 'Tere Liye', '2026-07-26 13:00:28', '2026-07-26 13:00:28') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.authors (id, name, created_at, updated_at) VALUES ('019f9e83-3a6c-71a5-9b59-ab8f62821b92', 'Eka Kurniawan', '2026-07-26 13:00:28', '2026-07-26 13:00:28') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.authors (id, name, created_at, updated_at) VALUES ('019f9e83-3a6c-71a5-9b59-ab8f62dd586f', 'Dee Lestari', '2026-07-26 13:00:28', '2026-07-26 13:00:28') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.authors (id, name, created_at, updated_at) VALUES ('019f9ebd-05b2-70a8-a65d-4051dec882fa', 'Jostein Gaarder', '2026-07-26 14:03:35', '2026-07-26 14:03:35') ON CONFLICT (id) DO NOTHING;
+
+INSERT INTO public.categories (id, name, slug, created_at, updated_at) VALUES ('019f9e83-3a70-7132-802b-f9209288800a', 'Fiksi', 'fiksi', '2026-07-26 13:00:28', '2026-07-26 13:00:28') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.categories (id, name, slug, created_at, updated_at) VALUES ('019f9e83-3a71-7076-b0ae-4fd38a68c83e', 'Non-Fiksi', 'non-fiksi', '2026-07-26 13:00:28', '2026-07-26 13:00:28') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.categories (id, name, slug, created_at, updated_at) VALUES ('019f9e83-3a72-712b-bbfe-207f7827a96c', 'Sejarah', 'sejarah', '2026-07-26 13:00:28', '2026-07-26 13:00:28') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.categories (id, name, slug, created_at, updated_at) VALUES ('019f9e83-3a72-712b-bbfe-207f78dcb541', 'Sains', 'sains', '2026-07-26 13:00:28', '2026-07-26 13:00:28') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.categories (id, name, slug, created_at, updated_at) VALUES ('019f9e83-3a73-714c-8cd5-30b122453ec2', 'Biografi', 'biografi', '2026-07-26 13:00:28', '2026-07-26 13:00:28') ON CONFLICT (id) DO NOTHING;
+
+INSERT INTO public.books (id, title, isbn, author_id, category_id, stock, synopsis, created_at, updated_at, cover_image_path) VALUES ('019f9e83-3a7d-724f-93f1-2f90ec31cbb3', 'Laskar Pelangi', NULL, '019f9e83-3a6b-718e-8ac7-92f58d9c1eb1', '019f9e83-3a71-7076-b0ae-4fd38a68c83e', 5, NULL, '2026-07-26 13:00:28', '2026-07-26 13:00:28', NULL) ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.books (id, title, isbn, author_id, category_id, stock, synopsis, created_at, updated_at, cover_image_path) VALUES ('019f9e83-3a7e-701e-91ea-4470f1639fee', 'Pulang', NULL, '019f9e83-3a6b-718e-8ac7-92f58d9c1eb1', '019f9e83-3a73-714c-8cd5-30b122453ec2', 2, NULL, '2026-07-26 13:00:28', '2026-07-26 13:00:28', NULL) ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.books (id, title, isbn, author_id, category_id, stock, synopsis, created_at, updated_at, cover_image_path) VALUES ('019f9e83-3a7f-73a9-95c9-dbbeb837bf19', 'Cantik Itu Luka', NULL, '019f9e83-3a6c-71a5-9b59-ab8f62821b92', '019f9e83-3a72-712b-bbfe-207f7827a96c', 4, NULL, '2026-07-26 13:00:28', '2026-07-26 13:00:28', NULL) ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.books (id, title, isbn, author_id, category_id, stock, synopsis, created_at, updated_at, cover_image_path) VALUES ('019f9e83-3a80-71fb-b3de-a137280566b8', 'Supernova', NULL, '019f9e83-3a6c-71a5-9b59-ab8f62821b92', '019f9e83-3a72-712b-bbfe-207f7827a96c', 1, NULL, '2026-07-26 13:00:28', '2026-07-26 13:00:28', NULL) ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.books (id, title, isbn, author_id, category_id, stock, synopsis, created_at, updated_at, cover_image_path) VALUES ('019f9e83-3a7c-7080-a2e6-6aa8e8e69ff9', 'Bumi Manusia', NULL, '019f9e83-3a6a-725f-9a8c-7706c9ef9f6f', '019f9e83-3a72-712b-bbfe-207f78dcb541', 2, NULL, '2026-07-26 13:00:28', '2026-07-26 13:45:04', NULL) ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.books (id, title, isbn, author_id, category_id, stock, synopsis, created_at, updated_at, cover_image_path) VALUES ('019f9ead-b864-73eb-a89e-ed46c0a07682', 'Dunia Sophie', '978-602-441-366-8', '019f9ebd-05b2-70a8-a65d-4051dec882fa', '019f9e83-3a70-7132-802b-f9209288800a', 3, NULL, '2026-07-26 13:46:52', '2026-07-26 14:03:35', NULL) ON CONFLICT (id) DO NOTHING;
