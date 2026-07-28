@@ -12,12 +12,16 @@
     <div class="flex min-h-screen">
         <aside class="w-56 bg-gray-800 text-white shrink-0">
             <div class="p-4 border-b border-gray-700">
-                <a href="{{ route('admin.books.index') }}" class="flex items-center gap-2">
+                <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2">
                     <img src="{{ asset('images/logo-icon.svg') }}" alt="HobbyBaca" class="h-8 w-8">
                     <span class="font-bold text-lg">{{ config('app.name') }}</span>
                 </a>
             </div>
             <nav class="p-4 space-y-1">
+                <a href="{{ route('admin.dashboard') }}"
+                   class="block px-3 py-2 rounded hover:bg-gray-700 {{ request()->routeIs('admin.dashboard') ? 'bg-gray-700' : '' }}">
+                    Dashboard
+                </a>
                 <a href="{{ route('admin.books.index') }}"
                    class="block px-3 py-2 rounded hover:bg-gray-700 {{ request()->routeIs('admin.books.*') ? 'bg-gray-700' : '' }}">
                     Kelola Buku
