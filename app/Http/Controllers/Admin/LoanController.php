@@ -9,6 +9,11 @@ class LoanController extends Controller
 {
     public function index()
     {
+        // Otomatis tandai peminjaman yang lewat jatuh tempo sebagai terlambat
+        Loan::where('status', 'disetujui')
+            ->where('due_at', '<', now())
+            ->update(['status' => 'terlambat']);
+
         $loans = Loan::with('user', 'book')->latest()->paginate(15);
         return view('admin.loans.index', compact('loans'));
     }
@@ -31,5 +36,17 @@ class LoanController extends Controller
         $loan->update(['status' => 'ditolak']);
 
         return back()->with('success', 'Peminjaman ditolak.');
+    }
+
+    public function returnBook(Loan $loan)
+    {
+        $loan->update([
+            'status' => 'dikembalikan',
+            'returned_at' => now(),
+        ]);
+
+        $loan->book->increment('stock');
+
+        return back()->with('success', 'Buku berhasil ditandai sebagai dikembalikan.');
     }
 }
