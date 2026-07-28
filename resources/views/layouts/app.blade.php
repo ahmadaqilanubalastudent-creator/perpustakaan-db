@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
+        <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+<link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
@@ -37,7 +38,7 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                     <div class="flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-gray-500">
                         <span>&copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.</span>
-                        <span>Ahmad Aqila Nubala | 41.24.0001.</span>
+                        <span>Ahmad Aqila Nubala | 41.24.0001</span>
                     </div>
                 </div>
             </footer>

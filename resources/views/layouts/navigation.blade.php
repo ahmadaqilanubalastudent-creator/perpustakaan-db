@@ -5,9 +5,10 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <span class="text-xl font-bold text-gray-800">{{ config('app.name') }}</span>
-                    </a>
+                    <a href="{{ route('dashboard') }}" class="flex items-center gap-2">
+    <img src="{{ asset('images/logo-icon.svg') }}" alt="HobbyBaca" class="h-8 w-8">
+    <span class="text-xl font-bold text-gray-800">{{ config('app.name') }}</span>
+</a>
                 </div>
 
                 <!-- Navigation Links -->
